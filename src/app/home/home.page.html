@@ -1,20 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div>
+      <img src="../../assets/photo/LOGOk.png" alt="" />
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div [routerLink]="['//status']">
+            <ion-icon name="stats-chart-outline" class="ic"></ion-icon>
+            <div class="title">
+              <span>Status</span>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div [routerLink]="['//control']">
+            <ion-icon name="settings-outline" class="ic"></ion-icon>
+            <div class="title">
+              <span>Control</span>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div [routerLink]="['//member']">
+            <ion-icon name="people-outline" class="ic"></ion-icon>
+            <div class="title">
+              <span>Member</span>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div [routerLink]="['//about']">
+            <ion-icon name="information-circle-outline" class="ic"></ion-icon>
+            <div class="title">
+              <span>About</span>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

@@ -1,0 +1,95 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button [routerLink]="['//home']">
+          <ion-icon name="chevron-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Control</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-item>
+      <ion-label>Time 1</ion-label>
+      <ion-datetime
+        [(ngModel)]="time1"
+        (ionChange)="showTime(0,time1)"
+        display-format="H:m"
+        picker-format="H:m"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="time1 !=null">
+      <ion-label>Time 2</ion-label>
+      <ion-datetime
+        [(ngModel)]="time2"
+        (ionChange)="showTime(1,time2)"
+        display-format="H:m"
+        picker-format="H:m"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="time2 !=null">
+      <ion-label>Time 3</ion-label>
+      <ion-datetime
+        [(ngModel)]="time3"
+        (ionChange)="showTime(2,time3)"
+        display-format="H:m"
+        picker-format="H:m"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="time3 !=null">
+      <ion-label>Time 4</ion-label>
+      <ion-datetime
+        [(ngModel)]="time4"
+        (ionChange)="showTime(3,time4)"
+        display-format="H:m"
+        picker-format="H:m"
+      ></ion-datetime>
+    </ion-item>
+    <div style="padding-top: 10%;">
+      <span>Control Motor Speed</span>
+      <p>RPM {{rpm}}</p>
+      <ion-range
+        [(ngModel)]="rpm"
+        min="0"
+        max="1024"
+        value="{{motors}}"
+        pin
+        color="secondary"
+        (ionChange)="setRpm()"
+        ><ion-icon slot="start" size="small" name="sync-outline"></ion-icon>
+        <ion-icon slot="end" name="sync-outline"></ion-icon>
+      </ion-range>
+    </div>
+    <div>
+      <span>Control Temp for Motor Start</span>
+      <p>{{tempover}} ํ</p>
+      <ion-range
+        [(ngModel)]="tempover"
+        min="0"
+        max="100"
+        value="{{tempover}}"
+        pin
+        color="secondary"
+        (ionChange)="setTemp()"
+      >
+        <ion-icon
+          slot="start"
+          size="small"
+          name="thermometer-outline"
+        ></ion-icon>
+        <ion-icon slot="end" name="thermometer-outline"></ion-icon>
+      </ion-range>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button *ngIf="status==0" expand="block" (click)="control()"
+    >ON</ion-button
+  >
+  <ion-button *ngIf="status!=0" expand="block" (click)="control()"
+    >OFF</ion-button
+  >
+</ion-footer>
